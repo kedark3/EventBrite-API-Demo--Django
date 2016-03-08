@@ -3,7 +3,9 @@
 <head>
 	<title>Eventbrite Demo</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 	<script>
+	//This script has been written to restrict user from selecting more that 3 categories at the same time.
 	    $(document).ready(function() {
 
 
@@ -11,10 +13,12 @@
             if (this.selectedOptions.length < 4) {
                 $(this).find(':selected').addClass('selected');
                 $(this).find(':not(:selected)').removeClass('selected');
-            }else
+            }else{
                 $(this)
                 .find(':selected:not(.selected)')
                 .prop('selected', false);
+                window.alert("You can not select more than 3 categories!!");
+            }
         });
 
 
@@ -23,14 +27,22 @@
 
 </head>
 <body>
+    <marquee>Welcome to Eventbrite API Demo by Kedar Kulkarni. Vist :
+    <a target='_blank' href="http://kedarkulkarni.in">http://kedarkulkarni.in</a> for more info.</marquee>
 
-    <form action="/events" method="get">
+    <h1>Select up to 3 categories using Ctrl+Click and hit Submit to see events under those categories.</h1>
+    <!-- Our form begins here and we used context varibles to set the form dynamically. Rest is simple and intuitive.-->
+    <form action="/events" method="get" style="margin-left:30%;">
     {% csrf_token %}
-        <label for="{{ form.id_favorite_event_categories}}">Favorite event categories:</label> <br>
+        <h2><label for="{{ form.id_favorite_event_categories}}">Favorite event categories:</label></h2> <br>
         {{form.favorite_event_categories}}
-        <input type="hidden" value="1" name="page"/>
+        <input type="hidden" value="1" name="page"/><br><br><br>
         <input type="submit" value="Submit" />
     </form>
 
 </body>
 </html>
+
+<!--Stylesheet is not created separately since there are not much style elements. Please pardon me for lack of styles,
+I have been busy with other academic stuff so could not implement styles. Please visit http://smspoll.kedarkulkarni.in
+or http://clrms-mitcoe.in for neat styled websites. -->

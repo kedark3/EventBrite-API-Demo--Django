@@ -1,3 +1,8 @@
+<!--
+This page is particularly created to render iFrame contents. Our view will refer to this template
+and display results in iframes.
+-->
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -5,7 +10,10 @@
 
 </head>
 <body>
-
+    <!--
+    For loop to loop over list of event_details object coming in events varibale and display their name and
+    href its link in anchor-tag.
+    -->
    {%for event in events%}
 
         <a href="{{event.event_url}}" target="_blank">{{event.event_name}}</a><br><br>

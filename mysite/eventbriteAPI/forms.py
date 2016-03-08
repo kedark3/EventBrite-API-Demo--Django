@@ -1,7 +1,5 @@
 from django import forms
-
-
-
+#creating a simple fjango form with one select box with multiple choice enables
 
 class SimpleForm(forms.Form):
     def __init__(self, favorite_event_categories, *args, **kwargs):
@@ -10,4 +8,4 @@ class SimpleForm(forms.Form):
 
 
     favorite_event_categories = forms.MultipleChoiceField(required=True,
-        widget=forms.SelectMultiple(attrs={'size':'10', 'required':'True'}), choices=())
+        widget=forms.SelectMultiple(attrs={'size':'20', 'required':'True'}), choices=())
