@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Eventbrite Demo|Results</title>
+
+</head>
+<body>
+
+   {%for event in events%}
+
+        <a href="{{event.event_url}}" target="_blank">{{event.event_name}}</a><br><br>
+    {% endfor %}
+<div class="pagination">
+    <span class="step-links">
+
+
+        <a href="{{previous}}">Previous</a>
+
+
+        <span class="current">
+            Page {{ page_number }} of {{ page_count }}.
+        </span>
+
+
+        <a href="{{ next }}">Next</a>
+
+    </span>
+</div>
+</body>
+</html>

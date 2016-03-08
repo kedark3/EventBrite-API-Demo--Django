@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Eventbrite Demo</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+	    $(document).ready(function() {
+
+
+        $('#id_favorite_event_categories').on('change', function() {
+            if (this.selectedOptions.length < 4) {
+                $(this).find(':selected').addClass('selected');
+                $(this).find(':not(:selected)').removeClass('selected');
+            }else
+                $(this)
+                .find(':selected:not(.selected)')
+                .prop('selected', false);
+        });
+
+
+    });
+	</script>
+
+</head>
+<body>
+
+    <form action="/events" method="get">
+    {% csrf_token %}
+        <label for="{{ form.id_favorite_event_categories}}">Favorite event categories:</label> <br>
+        {{form.favorite_event_categories}}
+        <input type="hidden" value="1" name="page"/>
+        <input type="submit" value="Submit" />
+    </form>
+
+</body>
+</html>
